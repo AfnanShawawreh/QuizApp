@@ -11,7 +11,7 @@ import {
 import RadioButton from '../Component/RadioButton';
 import Card from '../Component/Card'
 import * as yup from 'yup'
-const Quiz = () => {
+const Quiz = ({navigation}) => {
   const data = [
     { value: 'Java' },
     { value: 'Javascript' },
@@ -41,7 +41,9 @@ const Quiz = () => {
         <Formik
           validationSchema={formValidationSchema}
           initialValues={{ value: '', name: '' }}
-          onSubmit={values => console.log(values)}
+          onSubmit={values =>{ console.log(values),
+           navigation.pop()
+          }}
         >
           {({
             handleChange,
