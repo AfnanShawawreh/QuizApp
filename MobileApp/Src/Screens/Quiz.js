@@ -11,6 +11,7 @@ import {
 import RadioButton from '../Component/RadioButton';
 import Card from '../Component/Card'
 import * as yup from 'yup'
+import {createAnswer}from '../function/index'
 const Quiz = ({navigation}) => {
   const data = [
     { value: 'Java' },
@@ -33,6 +34,11 @@ const Quiz = ({navigation}) => {
       .min(3, ({ min }) => `name must be at least ${min} characters`)
       .required('name is required'),
   })
+  // const onSubmitHandler =async(value)=>{
+  //   const result = await createAnswer(value)
+   
+
+  // }
   return (
 
     <View style={styles.Card}>
@@ -41,8 +47,9 @@ const Quiz = ({navigation}) => {
         <Formik
           validationSchema={formValidationSchema}
           initialValues={{ value: '', name: '' }}
-          onSubmit={values =>{ console.log(values),
-           navigation.pop()
+          onSubmit={async(values) =>{
+           const result = await createAnswer(values);
+          navigation.pop()
           }}
         >
           {({

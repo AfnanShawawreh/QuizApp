@@ -9,11 +9,11 @@ app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }))
 app.use(cors());
 app.use('/answers',answersRoutes);
-const mongodb = 'mongodb+srv://Afnan:Fnhhloosh1234567@cluster0.pxkqo.mongodb.net/answer?retryWrites=true&w=majority';
+
 app.get('/', (req, res) => {
 res.send('Welcome to server')
 })
 const PORT = process.env.PORT || 5000;
-mongoose.connect(mongodb, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.mongodb, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => app.listen(PORT, () => console.log(`Server running on ${PORT} `)))
 .catch((error) => console.log(error));
