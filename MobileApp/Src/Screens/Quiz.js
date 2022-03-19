@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableHighlight,
   BackHandler,
+  ScrollView
 } from 'react-native'
 import RadioButton from '../Component/RadioButton';
 import Card from '../Component/Card'
@@ -34,14 +35,11 @@ const Quiz = ({navigation}) => {
       .min(3, ({ min }) => `name must be at least ${min} characters`)
       .required('name is required'),
   })
-  // const onSubmitHandler =async(value)=>{
-  //   const result = await createAnswer(value)
-   
-
-  // }
+ 
   return (
 
     <View style={styles.Card}>
+      <ScrollView>
       <Card>
         <Text style={styles.title1}>Quiz</Text>
         <Formik
@@ -49,7 +47,7 @@ const Quiz = ({navigation}) => {
           initialValues={{ value: '', name: '' }}
           onSubmit={async(values) =>{
            const result = await createAnswer(values);
-          navigation.pop()
+          navigation.pop();
           }}
         >
           {({
@@ -88,6 +86,7 @@ const Quiz = ({navigation}) => {
           )}
         </Formik>
       </Card>
+      </ScrollView>
     </View>
   );
 };
@@ -95,16 +94,17 @@ const Quiz = ({navigation}) => {
 const styles = StyleSheet.create({
  title: {
     fontSize: 30,
-    fontWeight: '500',
+    fontWeight: '300',
     color: '#FF9AAE',
     marginVertical: 2,
     alignSelf: 'center',
+   
 
   },
   title1: {
 
-    fontSize: 60,
-    fontWeight: '700',
+    fontSize: 50,
+    fontWeight: '500',
     color: '#FF9AAE',
     alignSelf: 'center',
   },
@@ -116,31 +116,31 @@ const styles = StyleSheet.create({
     backgroundColor:'#FFEAEA'
   },
   Text: {
-    fontSize: 20,
+    fontSize: 25,
     color: 'gray',
     textAlign: 'center', alignSelf: 'center'
   },
   textInput: {
-    height: 40,
+    height: '15%',
     width: '80%',
-    margin: 10,
+    margin: '5%',
     backgroundColor: 'white',
     borderColor: '#FF9AAE',
-    borderWidth: StyleSheet.hairlineWidth,
+    borderWidth: 4,
     borderRadius: 20,
   },
   errorText: {
-    fontSize: 10,
+    fontSize: 20,
     color: 'red',
   },
   highlight: {
-    margin: 6,
-    padding: 10,
+    // margin: 6,
+    // padding: '3%',
     borderWidth: 3,
-    width: '20%',
+    width: '40%',
     backgroundColor: 'white',
     borderColor: '#FF9AAE',
-    marginTop: '5%'
+    margin: '5%'
   }
 
 

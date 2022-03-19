@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     card: {
         flex: 1,
         justifyContent: 'center',
-        margin: '10%',
+        margin: '30%',
         alignItems: 'center',
         alignSelf: 'center',
         shadowColor: 'black',
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: 'white',
         width: '80%',
-        height: '80%',
+        height: '100%',
 
 
     }

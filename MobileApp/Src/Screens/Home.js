@@ -12,12 +12,12 @@ const Home = ({ navigation }) => {
       <Text style={styles.title}>
         Get Ready for
       </Text>
-      <View style={{ flexDirection: 'row-reverse' }}>
+     
         <Text style={styles.title1}>
           Quiz Time
         </Text>
         <IconButton icon="rightcircle" backgroundColor="#FF9AAE" onPress={onPress} />
-      </View>
+      
     </SafeAreaView>
   );
 };
